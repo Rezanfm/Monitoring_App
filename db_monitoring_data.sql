@@ -1,16 +1,41 @@
--- Membuat tabel max_suhu_daily untuk menyimpan suhu tertinggi harian
+CREATE DATABASE IF NOT EXISTS db_monitoring;
+USE db_monitoring;
 
-CREATE TABLE IF NOT EXISTS max_suhu_daily (
+-- Buat tabel monitoring_data jika belum ada
+CREATE TABLE IF NOT EXISTS monitoring_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    max_value FLOAT NOT NULL,
-    date DATE NOT NULL UNIQUE, -- Kolom 'date' akan unik untuk memastikan satu entri per hari
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    suhu FLOAT NOT NULL,
+    turbidity FLOAT NOT NULL,
+    waktu TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
--- Membuat tabel max_turbidity_daily untuk menyimpan turbidity tertinggi harian
-CREATE TABLE IF NOT EXISTS max_turbidity_daily (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    max_value FLOAT NOT NULL,
-    date DATE NOT NULL UNIQUE, -- Kolom 'date' akan unik untuk memastikan satu entri per hari
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+INSERT INTO monitoring_data (suhu, turbidity, waktu) VALUES
+(28, 1.80, '2025-07-01 09:00:00'),
+(29, 1.85, '2025-07-02 09:00:00'),
+(30, 1.90, '2025-07-03 09:00:00'),
+(27, 1.88, '2025-07-04 09:00:00'),
+(28, 1.82, '2025-07-05 09:00:00'),
+(29, 2.00, '2025-07-06 09:00:00'),
+(30, 2.10, '2025-07-07 09:00:00'),
+(31, 1.87, '2025-07-08 09:00:00'),
+(27, 1.92, '2025-07-09 09:00:00'),
+(28, 1.96, '2025-07-10 09:00:00'),
+(28, 1.89, '2025-07-11 09:00:00'),
+(30, 2.05, '2025-07-12 09:00:00'),
+(29, 1.91, '2025-07-13 09:00:00'),
+(28, 1.93, '2025-07-14 09:00:00'),
+(30, 1.99, '2025-07-15 09:00:00'),
+(27, 1.84, '2025-07-16 09:00:00'),
+(31, 2.01, '2025-07-17 09:00:00'),
+(29, 1.90, '2025-07-18 09:00:00'),
+(28, 1.86, '2025-07-19 09:00:00'),
+(29, 1.97, '2025-07-20 09:00:00'),
+(30, 2.10, '2025-07-21 09:00:00'),
+(27, 1.88, '2025-07-22 09:00:00'),
+(28, 1.95, '2025-07-23 09:00:00'),
+(31, 2.05, '2025-07-24 09:00:00'),
+(29, 2.00, '2025-07-25 09:00:00'),
+(30, 1.98, '2025-07-26 09:00:00'),
+(27, 1.80, '2025-07-27 09:00:00'),
+(28, 1.83, '2025-07-28 09:00:00'),
+(29, 1.94, '2025-07-29 09:00:00'),
+(30, 2.08, '2025-07-30 09:00:00');
